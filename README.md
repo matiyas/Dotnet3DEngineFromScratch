@@ -51,7 +51,7 @@ To run this project:
 | Q                             | Move the camera up                         |
 | Z                             | Move the camera down                       |
 | LMB + Mouse move              | Rotate the camera in the x-axis and y-axis |
-| Left Shift + LMB + Mouse move | Rotate the camera in the z-axis            |
+| Shift + LMB + Mouse move | Rotate the camera in the z-axis            |
 | Mouse Scroll                  | Zoom                                       |
 | 1                             | Change mode to moving                      |
 | 2                             | Change mode to scaling                     |
@@ -63,7 +63,7 @@ To run this project:
 | -------------------------------------- | --------------------------------- |
 | RMB + Horizontal mouse move            | Move the object to the left/right |
 | RMB + Vertical mouse move              | Move the object up/down           |
-| Left Shift + RMB + Vertical mouse move | Move the object to/from yourself  |
+| Shift + RMB + Vertical mouse move | Move the object to/from yourself  |
 
 ### Scaling mode
 
@@ -71,7 +71,7 @@ To run this project:
 | -------------------------------------- | -------------------------------------------- |
 | RMB + Horizontal mouse move            | Scale the object horizontally                |
 | RMB + Vertical mouse move              | Scale the object vertically                  |
-| Left Shift + RMB + Vertical mouse move | Scale the object horizontally and vertically |
+| Shift + RMB + Vertical mouse move | Scale the object horizontally and vertically |
 
 ### Rotating mode
 
@@ -79,7 +79,7 @@ To run this project:
 | -------------------------------------- | ------------------------------- |
 | RMB + Horizontal mouse move            | Rotate the object horizontally  |
 | RMB + Vertical mouse move              | Rotate the object vertically    |
-| Left Shift + RMB + Vertical mouse move | Rotate the object in the z-axis |
+| Shift + RMB + Vertical mouse move | Rotate the object in the z-axis |
 
 ## TODO
 
