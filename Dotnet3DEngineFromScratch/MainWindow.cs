@@ -219,13 +219,13 @@ public partial class MainWindow : Gtk.Window
   {
     var fileChooser =
       new FileChooserDialog(
-        title: "Wybierz model",
+        title: "Select model",
         parent: this,
         action: FileChooserAction.Open,
         button_data:
         (
-          "Anuluj", ResponseType.Cancel,
-          "Otwórz", ResponseType.Ok
+          "Cancel", ResponseType.Cancel,
+          "Open", ResponseType.Ok
         )
       )
       {
@@ -253,13 +253,13 @@ public partial class MainWindow : Gtk.Window
   {
     var fileChooser =
       new FileChooserDialog(
-        title: "Wybierz model",
+        title: "Select model",
         parent: this,
         action: FileChooserAction.Open,
         button_data:
         (
-          "Anuluj", ResponseType.Cancel,
-          "Otwórz", ResponseType.Ok
+          "Cancel", ResponseType.Cancel,
+          "Open", ResponseType.Ok
         )
       )
       {
@@ -280,13 +280,13 @@ public partial class MainWindow : Gtk.Window
   {
     var fileChooser =
       new FileChooserDialog(
-        title: "Wybierz model",
+        title: "Select model",
         parent: this,
         action: FileChooserAction.Open,
         button_data:
         (
-          "Anuluj", ResponseType.Cancel,
-          "Otwórz", ResponseType.Ok
+          "Cancel", ResponseType.Cancel,
+          "Open", ResponseType.Ok
         )
       )
       {
