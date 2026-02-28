@@ -97,18 +97,27 @@ dotnet run
 
 ### Windows
 
-1. Install [MSYS2](https://www.msys2.org/)
-2. Open MSYS2 terminal and run:
-   ```bash
-   pacman -S mingw-w64-x86_64-gtk3
-   ```
-3. Add `C:\msys64\mingw64\bin` to your PATH environment variable
-4. Clone and run:
-   ```bash
-   git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
-   cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
-   dotnet run
-   ```
+```powershell
+# Install .NET 8.0 SDK
+winget install Microsoft.DotNet.SDK.8
+
+# Install MSYS2
+winget install MSYS2.MSYS2
+
+# Install GTK3 (run after MSYS2 installation)
+C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-gtk3
+
+# Add GTK3 to PATH (current session)
+$env:Path += ";C:\msys64\mingw64\bin"
+
+# Add GTK3 to PATH (permanently)
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\msys64\mingw64\bin", "User")
+
+# Clone and run
+git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+dotnet run
+```
 
 ## Controls
 
