@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using MathNet.Spatial.Euclidean;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -120,7 +121,6 @@ class Renderer
           x >= zBuffer.GetLength(0) ||
           y < 0 ||
           y >= zBuffer.GetLength(1) ||
-          zBuffer[x, y] < z ||
           z <= 300
         )
         {
@@ -153,14 +153,15 @@ class Renderer
 
         if (_textureColors == null)
         {
+          if (!TryClaimZBuffer(zBuffer, x, y, z))
+            continue;
+
           var color = new Gdk.Color(
             r: (byte)(127 * brightness),
             g: (byte)(127 * brightness),
             b: (byte)(127 * brightness)
           );
           _drawer.DrawPixel(new Vector2D(x, y), color);
-
-          zBuffer[x, y] = z;
           continue;
         }
 
@@ -187,10 +188,24 @@ class Renderer
             b: (byte)((db * (da * colorP1.B + a * colorP3.B) + b * (da * colorP2.B + a * colorP4.B)) * brightness)
           );
 
+        if (!TryClaimZBuffer(zBuffer, x, y, z))
+          continue;
+
         _drawer.DrawPixel(new Vector2D(x, y), pixelColor);
-        zBuffer[x, y] = z;
       }
     }
+  }
+
+  private static bool TryClaimZBuffer(double[,] zBuffer, int x, int y, double z)
+  {
+    double currentZ;
+    do
+    {
+      currentZ = Volatile.Read(ref zBuffer[x, y]);
+      if (currentZ < z)
+        return false;
+    } while (Interlocked.CompareExchange(ref zBuffer[x, y], z, currentZ) != currentZ);
+    return true;
   }
 
   public static double Brightness(Vector3D srcVertex, Vector3D dstVertex, Vector3D center)

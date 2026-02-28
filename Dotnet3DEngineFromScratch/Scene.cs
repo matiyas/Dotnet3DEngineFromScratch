@@ -1,6 +1,7 @@
 ﻿using Drawing = System.Drawing;
 using MathNet.Spatial.Euclidean;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -283,7 +284,9 @@ class Scene
         continue;
       }
 
-      foreach (var surface in model.TriangularSurfaces)
+      var isLightSource = World.IndexOf(model) == LightSourceIndex;
+
+      Parallel.ForEach(model.TriangularSurfaces, surface =>
       {
         if (
           modelPerspectiveView[surface.Vertex[0]].Z <= MinDistance &&
@@ -291,12 +294,12 @@ class Scene
           modelPerspectiveView[surface.Vertex[2]].Z <= MinDistance
         )
         {
-          continue;
+          return;
         }
 
         double[] gradient;
 
-        if (World.IndexOf(model) != LightSourceIndex)
+        if (!isLightSource)
         {
           gradient =
             new double[]
@@ -350,7 +353,7 @@ class Scene
           textureVertex: texture,
           zBuffer: _zBuffer
         );
-      }
+      });
     }
   }
 
