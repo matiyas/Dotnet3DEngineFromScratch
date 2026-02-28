@@ -4,7 +4,6 @@
 [![GTK](https://img.shields.io/badge/GTK-3-7FE719?logo=gtk)](https://www.gtk.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)]()
 [![GitHub last commit](https://img.shields.io/github/last-commit/matiyas/Dotnet3DEngineFromScratch)](https://github.com/matiyas/Dotnet3DEngineFromScratch/commits/master)
-[![GitHub stars](https://img.shields.io/github/stars/matiyas/Dotnet3DEngineFromScratch)](https://github.com/matiyas/Dotnet3DEngineFromScratch/stargazers)
 
 ## Table of contents
 
