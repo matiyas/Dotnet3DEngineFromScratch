@@ -161,26 +161,32 @@ public partial class MainWindow : Gtk.Window
     switch (eventArgs.Event.Key)
     {
       case Gdk.Key.w:
+      case Gdk.Key.W:
         _scene.Camera.GoForward(50);
         break;
 
       case Gdk.Key.s:
+      case Gdk.Key.S:
         _scene.Camera.GoForward(-50);
         break;
 
       case Gdk.Key.a:
+      case Gdk.Key.A:
         _scene.Camera.GoSideways(50);
         break;
 
       case Gdk.Key.d:
+      case Gdk.Key.D:
         _scene.Camera.GoSideways(-50);
         break;
 
       case Gdk.Key.q:
+      case Gdk.Key.Q:
         _scene.Camera.GoUpward(50);
         break;
 
       case Gdk.Key.z:
+      case Gdk.Key.Z:
         _scene.Camera.GoUpward(-50);
         break;
 
@@ -200,6 +206,7 @@ public partial class MainWindow : Gtk.Window
         break;
 
       case Gdk.Key.Shift_L:
+      case Gdk.Key.Shift_R:
         _state |= Dotnet3DEngineFromScratch.State.Shift;
         break;
     }
@@ -207,7 +214,7 @@ public partial class MainWindow : Gtk.Window
 
   protected override bool OnKeyReleaseEvent(EventKey eventKey)
   {
-    if (eventKey.Key == Gdk.Key.Shift_L)
+    if (eventKey.Key == Gdk.Key.Shift_L || eventKey.Key == Gdk.Key.Shift_R)
     {
       _state &= ~Dotnet3DEngineFromScratch.State.Shift;
     }
