@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 class Scene
 {

@@ -4,7 +4,7 @@ using Gtk;
 using MathNet.Spatial.Euclidean;
 using UI = Gtk.Builder.ObjectAttribute;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 [Flags]
 public enum State
@@ -30,11 +30,11 @@ public partial class MainWindow : Gtk.Window
   private static Color _blue = new(0, 0, 255);
   private static Color _red = new(255, 0, 0);
 
-  private readonly Scene _scene;
   private readonly double _mouseSensitivity;
   private Point _leftMouseBtn, _rightMouseBtn;
   private Mode _mode;
   private State _state;
+  private Scene _scene;
 
   [UI] private readonly Label _labelEditMode = null;
   [UI] private readonly Image _imageScreen = null;
@@ -48,27 +48,48 @@ public partial class MainWindow : Gtk.Window
   {
     builder.Autoconnect(this);
 
-    _state = Engine3D.State.None;
+    _state = Dotnet3DEngineFromScratch.State.None;
     _mouseSensitivity = 0.3;
     _labelEditMode.Text = _mode.ToString();
     _comboBoxModels.Active = 0;
 
+    SetBackground();
+    LoadDefaultModels();
+    SetDefaultModels();
+    SetTimeout();
+    SetEvents();
+  }
+
+  private void SetBackground()
+  {
     var backgroundPath = @"background.jpg";
     _scene = new Scene(backgroundPath, GetImageDimensions(backgroundPath), 1000, 100)
     {
       BrushColor = _green,
       BackgroundColor = _black,
     };
+  }
 
+  private void LoadDefaultModels()
+  {
     LoadModel(@"Assets/Models/monkey.obj", @"Assets/Textures/sun.jpg");
     LoadModel(@"Assets/Models/monkey.obj", @"Assets/Textures/earth.jpg");
+  }
 
+  private void SetDefaultModels()
+  {
     _scene.World[1].Translate(new Vector3D(500, 0, 0));
     _scene.World[1].Scale(new Vector3D(-50, -50, -50));
     _scene.LightSourceIndex = 0;
+  }
 
+  private void SetTimeout()
+  {
     GLib.Timeout.Add(50, new GLib.TimeoutHandler(OnUpdate));
+  }
 
+  private void SetEvents()
+  {
     KeyPressEvent += OnKeyPressEvent;
   }
 
@@ -179,7 +200,7 @@ public partial class MainWindow : Gtk.Window
         break;
 
       case Gdk.Key.Shift_L:
-        _state |= Engine3D.State.Shift;
+        _state |= Dotnet3DEngineFromScratch.State.Shift;
         break;
     }
   }
@@ -188,7 +209,7 @@ public partial class MainWindow : Gtk.Window
   {
     if (eventKey.Key == Gdk.Key.Shift_L)
     {
-      _state &= ~Engine3D.State.Shift;
+      _state &= ~Dotnet3DEngineFromScratch.State.Shift;
     }
 
     return base.OnKeyReleaseEvent(eventKey);
@@ -298,9 +319,9 @@ public partial class MainWindow : Gtk.Window
 
   protected void OnEventBoxScreenMotionNotifyEvent(object _sender, MotionNotifyEventArgs eventArgs)
   {
-    if ((_state & Engine3D.State.LeftMouseBtn) != 0)
+    if ((_state & Dotnet3DEngineFromScratch.State.LeftMouseBtn) != 0)
     {
-      if ((_state & Engine3D.State.Shift) != 0)
+      if ((_state & Dotnet3DEngineFromScratch.State.Shift) != 0)
       {
         var rotateVector =
           new Vector3D(
@@ -330,7 +351,7 @@ public partial class MainWindow : Gtk.Window
         );
     }
 
-    if ((_state & Engine3D.State.RightMouseBtn) != 0)
+    if ((_state & Dotnet3DEngineFromScratch.State.RightMouseBtn) != 0)
     {
       var value =
         new Point(
@@ -341,7 +362,7 @@ public partial class MainWindow : Gtk.Window
       switch (_mode)
       {
         case Mode.Move:
-          if ((_state & Engine3D.State.Shift) != 0)
+          if ((_state & Dotnet3DEngineFromScratch.State.Shift) != 0)
           {
             var moveVector =
               new Vector3D(
@@ -373,7 +394,7 @@ public partial class MainWindow : Gtk.Window
           break;
 
         case Mode.Scaling:
-          if ((_state & Engine3D.State.Shift) != 0)
+          if ((_state & Dotnet3DEngineFromScratch.State.Shift) != 0)
           {
             var scaleValue =
               Math.Sqrt(Math.Pow(value.X - value.Y, 2)) *
@@ -409,7 +430,7 @@ public partial class MainWindow : Gtk.Window
           break;
 
         case Mode.Rotating:
-          if ((_state & Engine3D.State.Shift) != 0)
+          if ((_state & Dotnet3DEngineFromScratch.State.Shift) != 0)
           {
             _scene.World[_comboBoxModels.Active].RotateAroundAxis(
               angle: value.X,
@@ -450,7 +471,7 @@ public partial class MainWindow : Gtk.Window
           x: (int)args.Event.X,
           y: (int)args.Event.Y
         );
-      _state |= Engine3D.State.LeftMouseBtn;
+      _state |= Dotnet3DEngineFromScratch.State.LeftMouseBtn;
     }
 
     if (args.Event.Button == 3)
@@ -460,7 +481,7 @@ public partial class MainWindow : Gtk.Window
           x: (int)args.Event.X,
           y: (int)args.Event.Y
         );
-      _state |= Engine3D.State.RightMouseBtn;
+      _state |= Dotnet3DEngineFromScratch.State.RightMouseBtn;
     }
   }
 
@@ -468,12 +489,12 @@ public partial class MainWindow : Gtk.Window
   {
     if (eventArgs.Event.Button == 1)
     {
-      _state &= ~Engine3D.State.LeftMouseBtn;
+      _state &= ~Dotnet3DEngineFromScratch.State.LeftMouseBtn;
     }
 
     if (eventArgs.Event.Button == 3)
     {
-      _state &= ~Engine3D.State.RightMouseBtn;
+      _state &= ~Dotnet3DEngineFromScratch.State.RightMouseBtn;
     }
   }
 

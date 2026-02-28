@@ -5,7 +5,7 @@ using System.Globalization;
 using MathNet.Spatial.Euclidean;
 using System;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 public struct Surface
 {

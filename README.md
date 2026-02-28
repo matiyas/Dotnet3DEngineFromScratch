@@ -1,4 +1,4 @@
-# LGIM_Mono
+# Dotnet3DEngineFromScratch
 
 ## Table of contents
 
@@ -29,7 +29,7 @@ To run this project:
 
 1. [Download](https://www.monodevelop.com/download/) and install Monodevelop.
 2. Open Monodevelop.
-3. Press Control + O and choose Engine3D.sln.
+3. Press Control + O and choose Dotnet3DEngineFromScratch.sln.
 4. Press Control + F5 to run the program.
 
 ## Controls

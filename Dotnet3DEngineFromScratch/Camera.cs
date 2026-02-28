@@ -1,7 +1,7 @@
 ﻿using MathNet.Spatial.Euclidean;
 using MathNet.Numerics.LinearAlgebra.Double;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 class Camera
 {

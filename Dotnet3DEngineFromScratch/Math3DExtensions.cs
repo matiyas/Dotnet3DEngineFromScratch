@@ -3,7 +3,7 @@ using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Spatial.Euclidean;
 using static System.Math;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 static class Math3DExtensions
 {

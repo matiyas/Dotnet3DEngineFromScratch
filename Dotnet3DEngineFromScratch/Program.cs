@@ -1,7 +1,7 @@
 using System;
 using Gtk;
 
-namespace Engine3D;
+namespace Dotnet3DEngineFromScratch;
 
 class Program
 {
@@ -10,7 +10,7 @@ class Program
   {
     Application.Init();
 
-    var app = new Application("org.Engine3D.Engine3D", GLib.ApplicationFlags.None);
+    var app = new Application("org.Dotnet3DEngineFromScratch.Dotnet3DEngineFromScratch", GLib.ApplicationFlags.None);
     app.Register(GLib.Cancellable.Current);
 
     var win = new MainWindow();
