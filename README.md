@@ -17,20 +17,20 @@ The project is 3D engine containing basic functionalities such as loading 3D mod
 
 ## Technologies
 
+* [.NET 8.0](https://dotnet.microsoft.com/)
 * [C#](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/)
-* [Monodevelop](https://www.monodevelop.com/)
-* [Mono](https://www.mono-project.com/)
-* [GtkSharp](https://www.mono-project.com/docs/gui/gtksharp/)
-* [Math.Net](https://www.mathdotnet.com/)
+* [GtkSharp](https://github.com/GtkSharp/GtkSharp)
+* [Math.NET](https://www.mathdotnet.com/)
+* [SixLabors.ImageSharp](https://sixlabors.com/products/imagesharp/)
 
 ## Setup
 
 To run this project:
 
-1. [Download](https://www.monodevelop.com/download/) and install Monodevelop.
-2. Open Monodevelop.
-3. Press Control + O and choose Dotnet3DEngineFromScratch.sln.
-4. Press Control + F5 to run the program.
+1. Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. Install GTK3 (on macOS: `brew install gtk+3`)
+3. Clone the repository
+4. Run `dotnet run` in the project directory
 
 ## Controls
 
@@ -42,10 +42,10 @@ To run this project:
 | S                             | Move the camera backward                   |
 | A                             | Move the camera to the left                |
 | D                             | Move the camera to the right               |
-| Space                         | Move the camera up                         |
-| Left Control                  | Move the camera down                       |
-| LPM + Mouse move              | Rotate the camera in the x-axis and y-axis |
-| Left Shift + LPM + Mouse move | Rotate the camera in the z-axis            |
+| Q                             | Move the camera up                         |
+| Z                             | Move the camera down                       |
+| LMB + Mouse move              | Rotate the camera in the x-axis and y-axis |
+| Left Shift + LMB + Mouse move | Rotate the camera in the z-axis            |
 | Mouse Scroll                  | Zoom                                       |
 | 1                             | Change mode to moving                      |
 | 2                             | Change mode to scaling                     |
@@ -55,25 +55,25 @@ To run this project:
 
 | Key                                    | Function                          |
 | -------------------------------------- | --------------------------------- |
-| PPM + Horizontal mouse move            | Move the object to the left/right |
-| PPM + Vertical mouse move              | Move the object up/down           |
-| Left Shift + PPM + Veritcal mouse move | Move the object to/from yourself  |
+| RMB + Horizontal mouse move            | Move the object to the left/right |
+| RMB + Vertical mouse move              | Move the object up/down           |
+| Left Shift + RMB + Vertical mouse move | Move the object to/from yourself  |
 
 ### Scaling mode
 
 | Key                                    | Function                                     |
 | -------------------------------------- | -------------------------------------------- |
-| PPM + Horizontal mouse move            | Scale the object horizontally                |
-| PPM + Vertical mouse move              | Scale the object vertically                  |
-| Left Shift + PPM + Veritcal mouse move | Scale the object horizontally and vertically |
+| RMB + Horizontal mouse move            | Scale the object horizontally                |
+| RMB + Vertical mouse move              | Scale the object vertically                  |
+| Left Shift + RMB + Vertical mouse move | Scale the object horizontally and vertically |
 
 ### Rotating mode
 
 | Key                                    | Function                        |
 | -------------------------------------- | ------------------------------- |
-| PPM + Horizontal mouse move            | Rotate the object horizontally  |
-| PPM + Vertical mouse move              | Rotate the object vertically    |
-| Left Shift + PPM + Veritcal mouse move | Rotate the object in the z-axis |
+| RMB + Horizontal mouse move            | Rotate the object horizontally  |
+| RMB + Vertical mouse move              | Rotate the object vertically    |
+| Left Shift + RMB + Vertical mouse move | Rotate the object in the z-axis |
 
 ## TODO
 
