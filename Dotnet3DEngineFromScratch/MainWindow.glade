@@ -103,7 +103,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="OpoznienieLabel">
+              <object class="GtkMenuItem" id="_frameTimeLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="right-justified">True</property>

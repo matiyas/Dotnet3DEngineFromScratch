@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Gdk;
 using Gtk;
 using MathNet.Spatial.Euclidean;
@@ -31,12 +32,14 @@ public partial class MainWindow : Gtk.Window
   private static Color _red = new(255, 0, 0);
 
   private readonly double _mouseSensitivity;
+  private readonly Stopwatch _frameTimer = new();
   private Point _leftMouseBtn, _rightMouseBtn;
   private Mode _mode;
   private State _state;
   private Scene _scene;
 
   [UI] private readonly Label _labelEditMode = null;
+  [UI] private readonly MenuItem _frameTimeLabel = null;
   [UI] private readonly Image _imageScreen = null;
   [UI] private readonly CheckButton _checkButtonMesh = null;
   [UI] private readonly CheckButton _checkButtonFloorMesh = null;
@@ -102,9 +105,14 @@ public partial class MainWindow : Gtk.Window
 
   protected bool OnUpdate()
   {
+    _frameTimer.Restart();
+
     _scene.LightSource = _scene.World[_scene.LightSourceIndex].VertexCoords.FindCenter();
 
     DrawOnScreen();
+
+    _frameTimer.Stop();
+    _frameTimeLabel.Label = $"{_frameTimer.ElapsedMilliseconds}ms";
 
     return true;
   }
