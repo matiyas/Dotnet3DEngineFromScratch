@@ -155,6 +155,21 @@ dotnet run
 
 ## Troubleshooting
 
+### Wayland
+
+The application forces the X11 backend on Linux because GtkSharp does not render correctly under Wayland. This means XWayland must be available. Most Wayland compositors (GNOME, KDE Plasma, Sway) ship XWayland by default, but if the app fails to open a display, install it:
+
+```bash
+# Ubuntu/Debian
+sudo apt-get install xwayland
+
+# Fedora
+sudo dnf install xorg-x11-server-Xwayland
+
+# Arch
+sudo pacman -S xorg-xwayland
+```
+
 ### GTK Module Warning on Linux
 
 You may see a warning message like this when running the application:
