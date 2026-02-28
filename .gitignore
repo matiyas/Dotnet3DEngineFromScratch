@@ -51,6 +51,8 @@ artifacts/
 *.ilk
 *.meta
 *.obj
+# Keep Wavefront OBJ 3D model files
+!**/Assets/Models/*.obj
 *.pch
 *.pdb
 *.pgc
