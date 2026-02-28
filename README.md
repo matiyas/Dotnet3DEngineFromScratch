@@ -19,6 +19,7 @@
   * [Moving mode](#moving-mode)
   * [Scaling mode](#scaling-mode)
   * [Rotating mode](#rotating-mode)
+* [Troubleshooting](#troubleshooting)
 
 ## General info
 
@@ -37,6 +38,13 @@ The project is 3D engine containing basic functionalities such as loading 3D mod
 ### Prerequisites
 
 Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) for your platform.
+
+**Note:** If you install .NET using the install script, you'll need to add it to your PATH:
+```bash
+export PATH="$PATH:$HOME/.dotnet"
+```
+
+To make this permanent, add the above line to your shell profile (`~/.bashrc`, `~/.zshrc`, or `~/.profile`).
 
 ### macOS
 
@@ -144,6 +152,17 @@ dotnet run
 | RMB + Horizontal mouse move            | Rotate the object horizontally  |
 | RMB + Vertical mouse move              | Rotate the object vertically    |
 | Shift + RMB + Vertical mouse move | Rotate the object in the z-axis |
+
+## Troubleshooting
+
+### GTK Module Warning on Linux
+
+You may see a warning message like this when running the application:
+```
+Gtk-Message: Failed to load module "appmenu-gtk-module"
+```
+
+This is a harmless warning about an optional GTK module and does not affect the application's functionality. You can safely ignore it.
 
 ## TODO
 
