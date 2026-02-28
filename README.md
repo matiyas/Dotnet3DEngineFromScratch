@@ -10,7 +10,10 @@
 
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Installation](#installation)
+  * [macOS](#macos)
+  * [Linux](#linux-ubuntudebian)
+  * [Windows](#windows)
 * [Controls](#controls)
   * [General](#general)
   * [Moving mode](#moving-mode)
@@ -29,14 +32,75 @@ The project is 3D engine containing basic functionalities such as loading 3D mod
 * [Math.NET](https://www.mathdotnet.com/)
 * [SixLabors.ImageSharp](https://sixlabors.com/products/imagesharp/)
 
-## Setup
+## Installation
 
-To run this project:
+### Prerequisites
 
-1. Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-2. Install GTK3 (on macOS: `brew install gtk+3`)
-3. Clone the repository
-4. Run `dotnet run` in the project directory
+Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) for your platform.
+
+### macOS
+
+```bash
+# Install GTK3 using Homebrew
+brew install gtk+3
+
+# Clone and run
+git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+dotnet run
+```
+
+### Linux (Ubuntu/Debian)
+
+```bash
+# Install GTK3
+sudo apt-get update
+sudo apt-get install libgtk-3-dev
+
+# Clone and run
+git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+dotnet run
+```
+
+### Linux (Fedora)
+
+```bash
+# Install GTK3
+sudo dnf install gtk3-devel
+
+# Clone and run
+git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+dotnet run
+```
+
+### Linux (Arch)
+
+```bash
+# Install GTK3
+sudo pacman -S gtk3
+
+# Clone and run
+git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+dotnet run
+```
+
+### Windows
+
+1. Install [MSYS2](https://www.msys2.org/)
+2. Open MSYS2 terminal and run:
+   ```bash
+   pacman -S mingw-w64-x86_64-gtk3
+   ```
+3. Add `C:\msys64\mingw64\bin` to your PATH environment variable
+4. Clone and run:
+   ```bash
+   git clone https://github.com/matiyas/Dotnet3DEngineFromScratch.git
+   cd Dotnet3DEngineFromScratch/Dotnet3DEngineFromScratch
+   dotnet run
+   ```
 
 ## Controls
 
